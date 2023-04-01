@@ -4,6 +4,7 @@ import {
   ColorfulMessage,
   ColorfulMessage2
 } from "./components/ColorfulMessage";
+import { ArrayLesson } from "./components/ArrayLesson";
 // import ColorfulMessage2 from "./components/ColorfulMessage2";
 
 //jsの中でreturnしてhtmlを書いていく記法をjsx記法という
@@ -21,6 +22,10 @@ const App = () => {
   const onClickSwitchShowFlg = () => {
     // !faceShowFlgで逆になる（true->false)
     setFaceShowFlg(!faceShowFlg);
+  };
+
+  const onChangeSample = (e) => {
+    console.log(e.target.value);
   };
 
   // numの値（カウントアップの数値）が３の倍数の場合faceShowFlgをtrueする
@@ -57,6 +62,7 @@ const App = () => {
       <ColorfulMessage color="blue" message="お元気ですか？" />
       <ColorfulMessage color="pink" message="元気です！" />
       <ColorfulMessage2 color="orange">あなたはどうですか？</ColorfulMessage2>
+      <ArrayLesson />
       {/* htmlのスタイルやイベントはキャメルケースケース
       ｛｝で囲うとjsとして認識される */}
       <button onClick={onClickCountUp}>カウントアップ</button>
@@ -65,6 +71,7 @@ const App = () => {
       <p>{num}</p>
       {/* faceShowFlgの戻りがtrueの場合（左辺がtrueの場合）&&の右側を返す（実行される */}
       {faceShowFlg && <p>( ﾟДﾟ)</p>}
+      <input type="text" onChange={onChangeSample} />
     </>
   );
 };
